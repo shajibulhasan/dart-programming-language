@@ -1,5 +1,5 @@
 void main() {
-  var obj = Example();
+  Example();
 }
 
 class Example {
