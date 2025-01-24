@@ -1,7 +1,7 @@
 void main() {
   // try catch block
   try {
-    int result = 12 ~/ 0;
+    int result = 12 ~/ 2;
     print('The result is $result');
   } catch (e) {
     print('The exception thrown is $e');
@@ -30,6 +30,14 @@ void main() {
     print('The result is $result');
   } on IntegerDivisionByZeroException {
     print('Cannot divide by zero');
+  } catch (e) {
+    print(e);
+  }
+
+  try {
+    value(4);
+  } catch (e) {
+    print(e);
   }
 }
 
@@ -44,11 +52,12 @@ class Value implements Exception {
   }
 }
 
-void value(int v) {
+value(int v) {
   if (v < 5) {
     throw Value().lessThanFive();
-  }
-  if (v > 10) {
+  } else if (v > 10) {
     throw Value().greaterThanTen();
+  } else {
+    print('Successfull');
   }
 }
